@@ -1,0 +1,22 @@
+{
+  "name": "upgrade-u",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "/src"
+  ],
+  "scripts": {
+    "test": "standard --fix && tap --100 test/*",
+    "autobahn": "wstest -m fuzzingclient -s autobahn/fuzzingclient.json"
+  },
+  "author": "Brad Dunbar <dunbarb2@gmail.com> (http://braddunbar.net/)",
+  "license": "ISC",
+  "dependencies": {
+    "bl": "^3.0.0"
+  },
+  "devDependencies": {
+    "standard": "13.1.0",
+    "tap": "14.4.3"
+  }
+}

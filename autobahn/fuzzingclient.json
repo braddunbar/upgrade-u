@@ -1,0 +1,12 @@
+{
+   "outdir": "./autobahn/reports",
+   "servers": [
+      {
+         "name": "upgrade u",
+         "url": "ws://127.0.0.1:3333"
+      }
+   ],
+   "cases": ["*"],
+   "exclude-cases": [],
+   "exclude-agent-cases": {}
+}

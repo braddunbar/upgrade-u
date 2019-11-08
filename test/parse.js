@@ -52,9 +52,9 @@ tap.test('parse a frame with a 64 bit extended length', async assert => {
   assert.is('x'.repeat(126), await data)
 })
 
-tap.test('throw if length is longer than 32 bits', async assert => {
+tap.test('throw if length is longer than Number.MAX_SAFE_INTEGER bits', async assert => {
   const iterator = parse((async function * () {
-    yield Buffer.from([0x81, 0x7f, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00])
+    yield Buffer.from([0x81, 0x7f, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])
   })())
 
   assert.rejects(iterator.next(), /frame too large/)

@@ -118,17 +118,16 @@ async function header (bytes) {
 
   let length = second & 0x7f
 
-  switch (length) {
-    case 126:
-      length = (await bytes.take(2)).readUInt16BE(0)
-      break
+  if (length === 126) {
+    length = (await bytes.take(2)).readUInt16BE(0)
+  } else if (length === 127) {
+    const value = (await bytes.take(8)).readBigUInt64BE()
 
-    case 127:
-      if ((await bytes.take(4)).readUInt32BE() > 0) {
-        throw new Error('frame too large')
-      }
-      length = (await bytes.take(4)).readUInt32BE()
-      break
+    if (value > global.BigInt(Number.MAX_SAFE_INTEGER)) {
+      throw new Error('frame too large')
+    }
+
+    length = Number(value)
   }
 
   const mask = (second & 0x80) === 0x80 ? await bytes.take(4) : null

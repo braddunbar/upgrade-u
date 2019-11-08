@@ -47,8 +47,8 @@ tap.test('sec-websocket-accept header', async assert => {
   },
   async (response) => {
     assert.is(response.statusCode, 101)
-    assert.is(response.headers['upgrade'], 'websocket')
-    assert.is(response.headers['connection'], 'upgrade')
+    assert.is(response.headers.upgrade, 'websocket')
+    assert.is(response.headers.connection, 'upgrade')
     assert.is(response.headers['sec-websocket-accept'], '1/EzsDDt6P7ixFGfaealxqPsxh4=')
   })
 })
@@ -64,7 +64,7 @@ tap.test('require sec-websocket-version 13', async assert => {
   },
   async (response) => {
     assert.is(response.statusCode, 400)
-    assert.is(response.headers['connection'], 'close')
+    assert.is(response.headers.connection, 'close')
     assert.is(response.headers['sec-websocket-accept'], undefined)
   })
 })
@@ -81,7 +81,7 @@ tap.test('reject POST requests', async assert => {
   },
   async (response) => {
     assert.is(response.statusCode, 400)
-    assert.is(response.headers['connection'], 'close')
+    assert.is(response.headers.connection, 'close')
     assert.is(response.headers['sec-websocket-accept'], undefined)
   })
 })

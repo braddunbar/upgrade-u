@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "standard": "13.1.0",
-    "tap": "14.4.3"
+    "tap": "14.9.2"
   }
 }

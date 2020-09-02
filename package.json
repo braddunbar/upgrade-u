@@ -13,7 +13,7 @@
   "author": "Brad Dunbar <dunbarb2@gmail.com> (http://braddunbar.net/)",
   "license": "ISC",
   "dependencies": {
-    "bl": "4.0.0"
+    "bl": "4.0.3"
   },
   "devDependencies": {
     "standard": "14.3.1",
